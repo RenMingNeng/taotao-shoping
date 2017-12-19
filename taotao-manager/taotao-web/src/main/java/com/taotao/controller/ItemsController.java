@@ -18,10 +18,10 @@ public class ItemsController {
     private IItemService itemService;
 
 
-    @RequestMapping(value="/itemList")
+    @RequestMapping(value="/index")
     public ModelAndView itemList(){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("item/item-list");
+        mv.setViewName("index");
         return mv;
     };
 
