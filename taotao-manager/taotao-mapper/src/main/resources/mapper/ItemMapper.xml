@@ -15,7 +15,7 @@
     <result column="updated" property="updated" jdbcType="TIMESTAMP" />
   </resultMap>
 
-  <select id="selectOneItem" resultType="com.taotao.pojo.Item">
+  <select id="selectOneItem" parameterType="java.lang.String" resultType="com.taotao.pojo.Item">
       SELECT * FROM tb_item WHERE id = #{intId}
   </select>
 
