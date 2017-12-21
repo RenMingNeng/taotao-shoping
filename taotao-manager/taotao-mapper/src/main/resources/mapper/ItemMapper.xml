@@ -19,4 +19,11 @@
       SELECT * FROM tb_item WHERE id = #{intId}
   </select>
 
+  <select id="selectListByParams" parameterType="java.util.Map" resultType="com.taotao.pojo.Item">
+      SELECT * FROM tb_item LIMIT #{startNum},#{endNum}
+  </select>
+
+  <select id="selectCountByParams" parameterType="java.util.Map" resultType="java.lang.Long">
+    SELECT COUNT(1) FROM tb_item
+  </select>
 </mapper>

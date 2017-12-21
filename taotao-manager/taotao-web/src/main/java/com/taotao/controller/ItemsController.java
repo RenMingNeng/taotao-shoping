@@ -7,7 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
+import util.EasyUIPage;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 @Controller
@@ -17,24 +21,21 @@ public class ItemsController {
     @Autowired
     private IItemService itemService;
 
-
-    @RequestMapping(value="/index")
-    public ModelAndView itemList(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("index");
-        return mv;
-    };
-
-    @RequestMapping(value="/getItem")
+    @RequestMapping("/list")
     @ResponseBody
-    public Item getItemById(
-            @RequestParam(value = "id", required = false, defaultValue = "536563") String itemId) {
-        try {
-             Item item = itemService.selectOne(itemId);
-            return item;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return new Item();
+    public EasyUIPage getItemList(
+            @RequestParam(value = "rows", required = true, defaultValue = "30") Integer pageSize,
+            @RequestParam(value = "page", required = true, defaultValue = "1") Integer pageNum) {
+        EasyUIPage page = new EasyUIPage();
+        Map params = new HashMap();
+        long count = itemService.selectCountByParams(params);
+        params.put("startNum",(pageNum-1)*pageSize);
+        params.put("endNum",pageSize);
+        List<Item> itemList = itemService.selectListByParams(params);
+        page.setTotal(count);
+        page.setRows(itemList);
+        return page;
     }
+
+
 }

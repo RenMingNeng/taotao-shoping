@@ -6,6 +6,9 @@ import com.taotao.service.IItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Map;
+
 @Service("itemsService")
 public class ItemsServiceImpl implements IItemService {
 
@@ -13,7 +16,12 @@ public class ItemsServiceImpl implements IItemService {
     private ItemMapper itemMapper;
 
     @Override
-    public Item selectOne(String itemId) {
-        return itemMapper.selectOneItem(itemId);
+    public List<Item> selectListByParams(Map params) {
+        return itemMapper.selectListByParams(params);
+    }
+
+    @Override
+    public long selectCountByParams(Map params) {
+        return itemMapper.selectCountByParams(params);
     }
 }
