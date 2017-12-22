@@ -1,4 +1,4 @@
-package com.taotao.mapper;
+package com.taotao.dao;
 
 import com.taotao.pojo.Item;
 import org.apache.ibatis.annotations.Param;

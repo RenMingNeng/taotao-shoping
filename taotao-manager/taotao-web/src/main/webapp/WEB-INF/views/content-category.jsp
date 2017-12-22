@@ -11,7 +11,7 @@
 </div>
 <script type="text/javascript">
 $(function(){
-	$("#contentCategory").tree({
+	$("#ContentCategory").tree({
 		url : '/content/category/list',
 		animate: true,
 		method : "GET",
@@ -44,7 +44,7 @@ $(function(){
 	});
 });
 function menuHandler(item){
-	var tree = $("#contentCategory");
+	var tree = $("#ContentCategory");
 	var node = tree.tree("getSelected");
 	if(item.name === "add"){
 		tree.tree('append', {

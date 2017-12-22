@@ -1,6 +1,6 @@
 package com.taotao.service.impl;
 
-import com.taotao.mapper.ItemMapper;
+import com.taotao.dao.ItemMapper;
 import com.taotao.pojo.Item;
 import com.taotao.service.IItemService;
 import org.springframework.beans.factory.annotation.Autowired;
