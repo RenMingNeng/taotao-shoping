@@ -24,7 +24,7 @@
     delete from tb_content_category
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.slx.zsxt.pojo.ContentCategory">
+  <insert id="insert" parameterType="com.taotao.pojo.ContentCategory">
     insert into tb_content_category (id, parent_id, name, 
       status, sort_order, is_parent, 
       created, updated)
@@ -32,7 +32,7 @@
       #{status,jdbcType=INTEGER}, #{sortOrder,jdbcType=INTEGER}, #{isParent,jdbcType=BIT}, 
       #{created,jdbcType=TIMESTAMP}, #{updated,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.slx.zsxt.pojo.ContentCategory">
+  <insert id="insertSelective" parameterType="com.taotao.pojo.ContentCategory">
     insert into tb_content_category
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.slx.zsxt.pojo.ContentCategory">
+  <update id="updateByPrimaryKeySelective" parameterType="com.taotao.pojo.ContentCategory">
     update tb_content_category
     <set>
       <if test="parentId != null">
@@ -114,7 +114,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.slx.zsxt.pojo.ContentCategory">
+  <update id="updateByPrimaryKey" parameterType="com.taotao.pojo.ContentCategory">
     update tb_content_category
     set parent_id = #{parentId,jdbcType=BIGINT},
       name = #{name,jdbcType=VARCHAR},

@@ -23,7 +23,7 @@
     delete from tb_user
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.slx.zsxt.pojo.User">
+  <insert id="insert" parameterType="com.taotao.pojo.User">
     insert into tb_user (id, username, password, 
       phone, email, created, 
       updated)
@@ -31,7 +31,7 @@
       #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{created,jdbcType=TIMESTAMP}, 
       #{updated,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.slx.zsxt.pojo.User">
+  <insert id="insertSelective" parameterType="com.taotao.pojo.User">
     insert into tb_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.slx.zsxt.pojo.User">
+  <update id="updateByPrimaryKeySelective" parameterType="com.taotao.pojo.User">
     update tb_user
     <set>
       <if test="username != null">
@@ -104,7 +104,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.slx.zsxt.pojo.User">
+  <update id="updateByPrimaryKey" parameterType="com.taotao.pojo.User">
     update tb_user
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

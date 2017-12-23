@@ -1,6 +1,6 @@
 package com.taotao.dao;
 
-import com.slx.zsxt.pojo.ItemParamItem;
+import com.taotao.pojo.ItemParamItem;
 
 public interface ItemParamItemMapper {
     int deleteByPrimaryKey(Long id);

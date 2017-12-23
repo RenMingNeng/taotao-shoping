@@ -27,13 +27,13 @@
     delete from tb_item_desc
     where item_id = #{itemId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.slx.zsxt.pojo.ItemDesc">
+  <insert id="insert" parameterType="com.taotao.pojo.ItemDesc">
     insert into tb_item_desc (item_id, created, updated, 
       item_desc)
     values (#{itemId,jdbcType=BIGINT}, #{created,jdbcType=TIMESTAMP}, #{updated,jdbcType=TIMESTAMP}, 
       #{itemDesc,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.slx.zsxt.pojo.ItemDesc">
+  <insert id="insertSelective" parameterType="com.taotao.pojo.ItemDesc">
     insert into tb_item_desc
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="itemId != null">
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.slx.zsxt.pojo.ItemDesc">
+  <update id="updateByPrimaryKeySelective" parameterType="com.taotao.pojo.ItemDesc">
     update tb_item_desc
     <set>
       <if test="created != null">
@@ -79,14 +79,14 @@
     </set>
     where item_id = #{itemId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.slx.zsxt.pojo.ItemDesc">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.taotao.pojo.ItemDesc">
     update tb_item_desc
     set created = #{created,jdbcType=TIMESTAMP},
       updated = #{updated,jdbcType=TIMESTAMP},
       item_desc = #{itemDesc,jdbcType=LONGVARCHAR}
     where item_id = #{itemId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.slx.zsxt.pojo.ItemDesc">
+  <update id="updateByPrimaryKey" parameterType="com.taotao.pojo.ItemDesc">
     update tb_item_desc
     set created = #{created,jdbcType=TIMESTAMP},
       updated = #{updated,jdbcType=TIMESTAMP}
