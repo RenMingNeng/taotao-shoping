@@ -10,7 +10,7 @@ public class ItemCat implements Serializable {
     private String name;
     private Integer status;
     private Integer sortOrder;
-    private Boolean isParent;
+    private Integer isParent;
     private Date created;
     private Date updated;
 
@@ -54,12 +54,12 @@ public class ItemCat implements Serializable {
         this.sortOrder = sortOrder;
     }
 
-    public Boolean getParent() {
+    public Integer getIsParent() {
         return isParent;
     }
 
-    public void setParent(Boolean parent) {
-        isParent = parent;
+    public void setIsParent(Integer isParent) {
+        this.isParent = isParent;
     }
 
     public Date getCreated() {

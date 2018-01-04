@@ -27,12 +27,14 @@
     delete from tb_item_desc
     where item_id = #{itemId,jdbcType=BIGINT}
   </delete>
+
   <insert id="insert" parameterType="com.taotao.pojo.ItemDesc">
     insert into tb_item_desc (item_id, created, updated, 
       item_desc)
     values (#{itemId,jdbcType=BIGINT}, #{created,jdbcType=TIMESTAMP}, #{updated,jdbcType=TIMESTAMP}, 
       #{itemDesc,jdbcType=LONGVARCHAR})
   </insert>
+
   <insert id="insertSelective" parameterType="com.taotao.pojo.ItemDesc">
     insert into tb_item_desc
     <trim prefix="(" suffix=")" suffixOverrides=",">

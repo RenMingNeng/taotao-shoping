@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import util.DataResult;
 import util.EasyUIPage;
 
 import java.util.HashMap;
@@ -16,7 +17,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/item")
-public class ItemsController {
+public class ItemController {
 
     @Autowired
     private IItemService itemService;
@@ -36,6 +37,13 @@ public class ItemsController {
         page.setRows(itemList);
         return page;
     }
+
+    @RequestMapping("/save")
+    @ResponseBody
+    public DataResult saveItem(Item item,String desc) throws Exception{
+        itemService.save(item, desc, null);
+        return DataResult.ok();
+    };
 
 
 }

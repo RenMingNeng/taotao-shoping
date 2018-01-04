@@ -19,4 +19,6 @@ public interface IItemService {
      * @return
      */
     long selectCountByParams(Map params);
+
+    void save(Item item, String desc, Object o);
 }

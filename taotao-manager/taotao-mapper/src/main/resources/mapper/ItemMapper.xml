@@ -26,4 +26,16 @@
   <select id="selectCountByParams" parameterType="java.util.Map" resultType="java.lang.Long">
     SELECT COUNT(1) FROM tb_item
   </select>
+
+  <insert id="insert" parameterType="com.taotao.pojo.Item">
+    insert into tb_item (id, title, sell_point,
+    price, num, barcode,
+    image, cid, status,
+    created, updated)
+    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{sellPoint,jdbcType=VARCHAR},
+    #{price,jdbcType=BIGINT}, #{num,jdbcType=INTEGER}, #{barcode,jdbcType=VARCHAR},
+    #{image,jdbcType=VARCHAR}, #{cid,jdbcType=BIGINT}, #{status,jdbcType=TINYINT},
+    #{created,jdbcType=TIMESTAMP}, #{updated,jdbcType=TIMESTAMP})
+  </insert>
+
 </mapper>

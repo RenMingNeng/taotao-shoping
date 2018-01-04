@@ -15,4 +15,6 @@ public interface ItemMapper {
     List<Item> selectListByParams(Map params);
 
     long selectCountByParams(Map params);
+
+    int insert(Item item);
 }
