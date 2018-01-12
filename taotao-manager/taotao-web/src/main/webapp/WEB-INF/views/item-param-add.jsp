@@ -38,10 +38,10 @@
 <script type="text/javascript">
 	$(function(){
 		TAOTAO.initItemCat({
-			fun:function(node){
+			fun:function(node){console.log(node)
 			$(".addGroupTr").hide().find(".param").remove();
 				//  判断选择的目录是否已经添加过规格
-			  $.getJSON("/item/param/query/itemcatid/" + node.id,function(data){
+			  $.getJSON("/itemParam/query/itemcatid/" + node.id,function(data){
 				  if(data.status == 200 && data.data){
 					  $.messager.alert("提示", "该类目已经添加，请选择其他类目。", undefined, function(){
 						 $("#itemParamAddTable .selectItemCat").click();

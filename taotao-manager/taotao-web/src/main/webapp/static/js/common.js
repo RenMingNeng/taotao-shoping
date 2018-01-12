@@ -125,7 +125,7 @@ var TT = TAOTAO = {
     			    	$("ul",_win).tree({
     			    		url:'/item/cat/list',
     			    		animate:true,
-    			    		onClick : function(node){alert(node.id)
+    			    		onClick : function(node){
     			    			if($(this).tree("isLeaf",node.target)){
     			    				// 填写到cid中
     			    				_ele.parent().find("[name=cid]").val(node.id);

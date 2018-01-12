@@ -37,6 +37,7 @@
         <commons-fileupload.version>1.3.1</commons-fileupload.version>
         <jedis.version>2.7.2</jedis.version>
         <solrj.version>4.10.3</solrj.version>
+        <fastDFS.version>1.27.0.0</fastDFS.version>
         <org.apache.logging.log4j.version>2.8.1</org.apache.logging.log4j.version>
     </properties>
 
@@ -70,6 +71,12 @@
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
                 <version>${jackson.version}</version>
+            </dependency>
+            <!-- fastDFS客户端 -->
+            <dependency>
+                <groupId>net.oschina.zcx7878</groupId>
+                <artifactId>fastdfs-client-java</artifactId>
+                <version>${fastDFS.version}</version>
             </dependency>
             <!-- httpclient -->
             <dependency>

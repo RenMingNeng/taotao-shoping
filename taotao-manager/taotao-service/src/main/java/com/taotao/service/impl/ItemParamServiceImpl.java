@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import util.DataResult;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ItemParamServiceImpl implements ItemParamService {
@@ -16,13 +17,21 @@ public class ItemParamServiceImpl implements ItemParamService {
 
     @Override
     public DataResult getItemParamByCid(Long itemCatId) {
-        DataResult dataResult = new DataResult();
         List<ItemParam> list = itemParamMapper.selectParamByCid(itemCatId);
         //判断是否查询到结果
         if (list != null && list.size() > 0) {
             return DataResult.ok(list.get(0));
         }
-        dataResult.setData(list);
-        return dataResult;
+        return DataResult.ok();
+    }
+
+    @Override
+    public long selectCountByParams(Map params) {
+        return itemParamMapper.selectCountByParams(params);
+    }
+
+    @Override
+    public List<ItemParam> selectListByParams(Map params) {
+        return itemParamMapper.selectListByParams(params);
     }
 }

@@ -7,6 +7,7 @@ import com.taotao.pojo.ItemDesc;
 import com.taotao.service.IItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import util.DataResult;
 import util.IDUtils;
 
 import java.util.Date;
@@ -33,7 +34,7 @@ public class ItemsServiceImpl implements IItemService {
     }
 
     @Override
-    public void save(Item item, String desc, Object o) {
+    public DataResult save(Item item, String desc) {
         Date date = new Date();
         //获得商品id
         long id = IDUtils.genItemId();
@@ -54,5 +55,6 @@ public class ItemsServiceImpl implements IItemService {
         itemDesc.setUpdated(date);
         //插入数据
         itemDescMapper.insert(itemDesc);
+        return DataResult.ok();
     }
 }
