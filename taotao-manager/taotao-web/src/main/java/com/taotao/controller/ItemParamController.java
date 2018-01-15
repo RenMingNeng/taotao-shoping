@@ -50,4 +50,15 @@ public class ItemParamController {
         page.setRows(itemList);
         return page;
     }
+
+    @RequestMapping("/save/{cid}")
+    @ResponseBody
+    public DataResult insertItemParam(@PathVariable Long cid,String paramData,String catName) {
+        ItemParam itemParam = new ItemParam();
+        itemParam.setItemCatId(cid);
+        itemParam.setItemCatName(catName);
+        itemParam.setParamData(paramData);
+        DataResult result = itemParamService.insertItemParam(itemParam);
+        return result;
+    }
 }

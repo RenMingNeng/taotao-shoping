@@ -8,7 +8,7 @@ import java.util.Map;
 public interface ItemParamMapper {
     int deleteByPrimaryKey(Long id);
 
-    int insert(ItemParam record);
+    int insert(ItemParam itemParam);
 
     int insertSelective(ItemParam record);
 

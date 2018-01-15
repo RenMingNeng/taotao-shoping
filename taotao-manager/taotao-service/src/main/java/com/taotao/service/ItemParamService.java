@@ -13,4 +13,6 @@ public interface ItemParamService {
     long selectCountByParams(Map params);
 
     List<ItemParam> selectListByParams(Map params);
+
+    DataResult insertItemParam(ItemParam itemParam);
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import util.DataResult;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -33,5 +34,14 @@ public class ItemParamServiceImpl implements ItemParamService {
     @Override
     public List<ItemParam> selectListByParams(Map params) {
         return itemParamMapper.selectListByParams(params);
+    }
+
+    @Override
+    public DataResult insertItemParam(ItemParam itemParam) {
+        // 补全itemParam
+        itemParam.setCreated(new Date());
+        itemParam.setUpdated(new Date());
+        itemParamMapper.insert(itemParam);
+        return DataResult.ok();
     }
 }

@@ -4,7 +4,8 @@
 	<tr>
 		<td>商品类目:</td>
 		<td><a href="javascript:void(0)" class="easyui-linkbutton selectItemCat">选择类目</a> 
-			<input type="hidden" name="cid" style="width: 280px;"></input>
+			<input type="hidden" name="cid" style="width: 280px;"/>
+			<input type="hidden" name="catName" style="width: 280px;"/>
 		</td>
 	</tr>
 	<tr class="hide addGroupTr">
@@ -30,7 +31,7 @@
 				<input class="easyui-textbox" style="width: 150px;" name="group"/>&nbsp;<a href="javascript:void(0)" class="easyui-linkbutton addParam"  title="添加参数" data-options="plain:true,iconCls:'icon-add'"></a>
 			</li>
 			<li>
-				<span>|-------</span><input  style="width: 150px;" class="easyui-textbox" name="param"/>&nbsp;<a href="javascript:void(0)" class="easyui-linkbutton delParam" title="删除" data-options="plain:true,iconCls:'icon-cancel'"></a>						
+				<span>|---</span><input  style="width: 150px;" class="easyui-textbox" name="param"/>&nbsp;<a href="javascript:void(0)" class="easyui-linkbutton delParam" title="删除" data-options="plain:true,iconCls:'icon-cancel'"></a>
 			</li>
 		</ul>
 	</li>
@@ -49,6 +50,7 @@
 					  return ;
 				  }
 				  $(".addGroupTr").show();
+                  $("#itemParamAddTable [name=catName]").val(node.text);
 			  });
 			}
 		});
@@ -92,8 +94,12 @@
 					});					
 				}
 			});
-			var url = "/item/param/save/"+$("#itemParamAddTable [name=cid]").val();
-			$.post(url,{"paramData":JSON.stringify(params)},function(data){
+			var url = "/itemParam/save/"+$("#itemParamAddTable [name=cid]").val();
+			var param = {
+                "paramData":JSON.stringify(params),
+                "catName":$("#itemParamAddTable [name=catName]").val()
+			};
+			$.post(url,param,function(data){
 				if(data.status == 200){
 					$.messager.alert('提示','新增商品规格成功!',undefined,function(){
 						$(".panel-tool-close").click();

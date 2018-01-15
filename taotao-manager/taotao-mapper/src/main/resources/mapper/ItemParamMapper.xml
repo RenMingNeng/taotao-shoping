@@ -19,12 +19,14 @@
     delete from tb_item_param
     where id = #{id,jdbcType=BIGINT}
   </delete>
+
   <insert id="insert" parameterType="com.taotao.pojo.ItemParam">
-    insert into tb_item_param (id, item_cat_id, created, 
+    insert into tb_item_param (id, item_cat_id, item_cat_name, created,
       updated, param_data)
-    values (#{id,jdbcType=BIGINT}, #{itemCatId,jdbcType=BIGINT}, #{created,jdbcType=TIMESTAMP}, 
-      #{updated,jdbcType=TIMESTAMP}, #{paramData,jdbcType=LONGVARCHAR})
+    values (#{id}, #{itemCatId}, #{itemCatName}, #{created},
+      #{updated}, #{paramData})
   </insert>
+
   <insert id="insertSelective" parameterType="com.taotao.pojo.ItemParam">
     insert into tb_item_param
     <trim prefix="(" suffix=")" suffixOverrides=",">
