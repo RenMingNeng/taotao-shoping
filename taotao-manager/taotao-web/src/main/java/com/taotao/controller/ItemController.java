@@ -54,8 +54,8 @@ public class ItemController {
      */
     @RequestMapping(value = "/save",method = RequestMethod.POST)
     @ResponseBody
-    public DataResult saveItem(Item item,String desc) throws Exception{
-        DataResult dataResult = itemService.save(item, desc);
+    public DataResult saveItem(Item item,String desc,String itemParams) throws Exception{
+        DataResult dataResult = itemService.save(item, desc, itemParams);
         return dataResult;
     }
 

@@ -28,12 +28,14 @@
     delete from tb_item_param_item
     where id = #{id,jdbcType=BIGINT}
   </delete>
+
   <insert id="insert" parameterType="com.taotao.pojo.ItemParamItem">
     insert into tb_item_param_item (id, item_id, created, 
       updated, param_data)
-    values (#{id,jdbcType=BIGINT}, #{itemId,jdbcType=BIGINT}, #{created,jdbcType=TIMESTAMP}, 
-      #{updated,jdbcType=TIMESTAMP}, #{paramData,jdbcType=LONGVARCHAR})
+    values (#{id}, #{itemId}, #{created},
+      #{updated}, #{paramData})
   </insert>
+
   <insert id="insertSelective" parameterType="com.taotao.pojo.ItemParamItem">
     insert into tb_item_param_item
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -104,4 +106,13 @@
       updated = #{updated,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectByItemId" parameterType="long" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_item_param_item
+    where item_id = #{itemId}
+  </select>
 </mapper>

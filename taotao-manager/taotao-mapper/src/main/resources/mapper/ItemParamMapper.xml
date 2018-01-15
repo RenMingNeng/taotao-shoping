@@ -99,7 +99,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
 
-  <select id="selectParamByCid" parameterType="long" resultType="com.taotao.pojo.ItemParam">
+  <select id="selectParamByCid" parameterType="long" resultMap="BaseResultMap">
       SELECT * FROM tb_item_param WHERE item_cat_id = #{itemCatId}
   </select>
 

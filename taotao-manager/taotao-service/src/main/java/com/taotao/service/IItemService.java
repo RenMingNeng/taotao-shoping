@@ -27,5 +27,5 @@ public interface IItemService {
      * @param item
      * @param desc
      */
-    DataResult save(Item item, String desc);
+    DataResult save(Item item, String desc, String itemParams) throws Exception;
 }
